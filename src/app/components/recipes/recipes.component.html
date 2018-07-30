@@ -1,8 +1,7 @@
-<div class="row">
-  <div class="col-md-5">
-    <app-recipe-list></app-recipe-list>
-  </div>
-	<div class="col-md-7">
-	<app-recipe-detail></app-recipe-detail>
-	</div>
-</div>
+<app-recipe-item (serverCreated)="onServerAdded($event)"></app-recipe-item>
+<hr>
+<app-recipe-list
+*ngFor="let serverElement of serverElements"
+[element]="serverElement"
+>
+</app-recipe-list>
