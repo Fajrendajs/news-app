@@ -11,5 +11,6 @@ export class RecipeItemComponent {
 
   onAddServer() {
     this.serverCreated.emit({ name: this.serverName });
+    this.serverName = "";
   }
 }

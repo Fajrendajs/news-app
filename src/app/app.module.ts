@@ -1,7 +1,15 @@
+import { LOCALE_ID, NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule } from "@angular/forms";
+
+import { AppRoutingModule } from "./news-app/routing/app-routing.module";
+import { MaterialModule } from "./news-app/material/material.module";
+import { PostsComponent } from "./news-app/posts/posts.component";
+import { NavbarComponent } from "./news-app/navbar/navbar.component";
+
+import { ServiceWorkerModule } from "@angular/service-worker";
+import { environment } from "../environments/environment";
 
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/header/header.component";
@@ -21,9 +29,20 @@ import { RecipeDetailComponent } from "./components/recipes/recipe-detail/recipe
     RecipeListComponent,
     RecipesComponent,
     RecipeItemComponent,
-    RecipeDetailComponent
+    RecipeDetailComponent,
+    PostsComponent
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    AppRoutingModule,
+    ServiceWorkerModule,
+    MaterialModule,
+    ServiceWorkerModule.register("/ngsw-worker.js", {
+      enabled: environment.production
+    })
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

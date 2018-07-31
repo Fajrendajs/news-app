@@ -1,2 +1,6 @@
-<input type="text" [(ngModel)]="serverName">
-<button class="btn btn-primary" (click)="onAddServer()">Add Server</button>
+<input 
+  type="text" 
+  [(ngModel)]="serverName" 
+  (keyup.enter)="onAddServer()" 
+  (blur)="onAddServer()">
+<button class="btn btn-primary"  (click)="onAddServer()">Add Server</button>

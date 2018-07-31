@@ -7,6 +7,7 @@ import { Component } from "@angular/core";
 })
 export class RecipesComponent {
   serverElements = [{ name: "Unix" }];
+  today: Date = new Date();
 
   onServerAdded(serverdata: { name }) {
     this.serverElements.push({ name: serverdata.name });
